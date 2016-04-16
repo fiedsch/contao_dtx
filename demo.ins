@@ -1,0 +1,50 @@
+%%
+%% Copyright (C) 2016 by Andreas Fieger <fiedsch@ja-eh.at>
+%%
+%% License: MIT
+%%
+
+\input docstrip.tex
+%\keepsilent
+\showprogress
+
+% In den Erzeugten Dateien keinen Prefix für die Kommentare verwenden.
+% Die Standardeinstellung wären zwei Prozentzeichen, also ein TeX-Kommenntar.
+
+\let\MetaPrefix\empty
+
+% Nicht nachfragen, ob bereits erzeugte Dateien überschrieben werden sollen
+
+\askforoverwritefalse
+
+% Dateien erzeugen
+
+% Preamble und Postamble leer.
+
+\nopreamble
+\nopostamble
+
+\generate{
+  \file{languages/de/tl_content.php}{\from{demo.dtx}{lang}}
+  \file{config/config.php}{\from{demo.dtx}{config}}
+  \file{dca/tl_content.php}{\from{demo.dtx}{dca}}
+  \file{elements/DemoElement.php}{\from{demo.dtx}{element}}
+  \file{templates/ce_demo.html5}{\from{demo.dtx}{template}}
+}
+
+\obeyspaces
+\Msg{*************************************************************}
+\Msg{*                                                           *}
+\Msg{* To finish the installation you have to move the generated *}
+\Msg{* files into your Contao installation                       *}
+\Msg{*                                                           *}
+\Msg{*     demo.php                                              *}
+\Msg{*                                                           *}
+\Msg{* To produce the documentation run the file demo.dtx        *}
+\Msg{* through LaTeX.                                            *}
+\Msg{*                                                           *}
+\Msg{* Happy Contao-ing!                                         *}
+\Msg{*                                                           *}
+\Msg{*************************************************************}
+
+\endbatchfile

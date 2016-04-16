@@ -1,0 +1,12 @@
+*.aux
+*.glo
+*.idx
+*.log
+*.pdf
+*.php
+*.toc
+config/
+dca/
+elements/
+languages/
+templates/
