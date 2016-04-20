@@ -82,8 +82,8 @@
 %
 % \section{Implementierung}
 %
-% Hier kommen die Details, die im Überblick des ersten Teils, der Z.\,B. das Benutzerhandbuch
-% darstellen könnte nicht interessieren.
+% Hier kommen die Details, die im Überblick des ersten Teils~-- der z.\,B. das Benutzerhandbuch
+% darstellen könnte~-- nicht interessieren.
 %
 % \subsection{Dateiheader}
 %
@@ -116,12 +116,14 @@
 %
 % \subsection{DataContainerArray -- DCA}
 %
+% Hier das Beispiel eines Content Elements, d.\,h. wir schreiben in die Datei |dca/tl_content.php|.
 %    \begin{macrocode}
 %<*dca>
-// Code für die dca/tl_element.php
+// Code für die dca/tl_content.php
 %</dca>
 %    \end{macrocode}
-%
+% \changes{v1.1}{2016/04/20}{fixed filename bug.}
+ %
 %
 %
 % \subsection{PHP-Klasse für das ContentElement}
@@ -150,7 +152,6 @@ class DemoElement extends \ContentElement
 %</element>
 %    \end{macrocode}
 % \end{macro}
-% \changes{v1.0}{2016/04/16}{Erste Version.}
 %
 % \begin{macro}{compile()}
 % In der Methode |compile| wird \dots.
@@ -177,12 +178,24 @@ class DemoElement extends \ContentElement
 % In den Sprachdateien (hier die |tl_content.php| werden die Texte für jede (unterstützte) Sprache
 % definiert.
 %    \begin{macrocode}
-%<*lang>
+%<*lang_content>
 $GLOBALS['TL_LANG']['tl_content']['bar'] = array(
   'Bar',
   'Die Beschreibung von Bar.'
 );
-%</lang>
+%</lang_content>
+%    \end{macrocode}
+%
+% Die Texte für die Beschreibung des Content Elements bei der Auswahl im Backend
+% müssen in die Datei |default.php| im jeweiligen Sprachen-Unterverzeichnis von |languages|
+% geschrieben werden.
+%    \begin{macrocode}
+%<*lang_default>
+$GLOBALS['TL_LANG']['CTE']['demoelement'] = array(
+			      'Demo Element',
+			      'Demo Content Element',
+			      );
+%</lang_default>
 %    \end{macrocode}
 %
 % \subsection{Template}
